@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Galada&display=swap');
+
 
 * {
     padding: 0;
@@ -14,12 +16,31 @@ html {
 
 body {
     width: 100%;
-    background: #131415;
-    font-family: "Monserrat", sans-serif;
+    background: var(--mantecol);
+    font-family: "Montserrat", sans-serif;
 }
 
+:root {
+    --marron: rgb(86, 44, 44);
+    --beige: rgb(240, 240, 225);
+    --mostaza: rgb(255, 214, 92);
+    --verde: rgb(48, 107, 52);
+    --verdecito: rgb(200, 224, 135);
+    --azul: rgb(43, 65, 98);
+    --celestito: rgb(168, 213, 226);
+    --mantecol: rgb(220, 195, 170);
+    --salmoncito: rgb(245, 155, 113);
+    --transparente: rgba(1, 1, 1, 0);
+    --borde_texto:  -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    --borde_claro: -1px -1px 0 var(--mantecol), 1px -1px 0 var(--mantecol), -1px 1px 0 var(--mantecol), 1px 1px 0 var(--mantecol);
+    --borde_fino: -1px -1px 0 var(--marron), 1px -1px 0 var(--marron), -1px 1px 0 var(--marron), 1px 1px 0 var(--marron);
+}
+
+
+/* ___________________________________NAVBAR____________________________________ */
+
 header {
-    background-color: #131415;
+    background-color: var(--transparente);
     margin: 0 auto;
     max-width: 1300px;
     height: 150px;
@@ -29,20 +50,6 @@ header {
     padding: 0px 80px 0px 50px;
     position: sticky;
     top: 0;
-}
-
-.img-hero{
-    width: 350px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-#img-pizza{
-    /* position: absolute; */
-    width: 400px;
-    /* top: 200px; */
-    /* right: 230px; */
 }
 
 .logo-container img {
@@ -61,7 +68,7 @@ header {
 
 .navbar i {
     font-size: 20px;
-    color: #FFA100;
+    color: var(--marron);
     cursor: pointer;
 }
 
@@ -69,26 +76,50 @@ header {
     display:none;
 } */
 
+
+/* ___________________________________HERO Y GENERALES____________________________________ */
+
 #hero {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 100px;
     margin: 0 auto;
     width: 100%;
+    gap: 100px;
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.img-hero{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.titles a {
     color: white;
 }
 
-h1 {
+#img-pizza{
     /* position: absolute; */
-    width: 603px;
-    height: 93px;
-    /* left: 250px; */
+    width: 500px;
     /* top: 200px; */
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 66px;
-    line-height: 86.48px;
+    /* right: 230px; */
+}
+
+h1 {
+    font-family: 'Galada', sans-serif;
+    text-align: center;
+    overflow-wrap: break-word;
+    font-size: 150px;
+    color: var(--marron);
+    text-shadow: var(--borde_texto);
 }
 
 h2 {
@@ -120,15 +151,18 @@ h6 {
     line-height: 56px;
 }
 
-p {
-    color: white;
-    font-family: 'Montserrat';
-    font-size: 22px;
-}
-
 .invisible {
     display: none;
 }
+
+.subtitulos{
+    margin: 100px 50px 20px;
+    color: var(--marron);
+    font-size: 20px;
+}
+
+
+/* ___________________________________CARRITO____________________________________ */
 
 #cart {
     position: fixed;
@@ -210,14 +244,12 @@ p {
     object-fit: cover;
 }
 
-
-
 .datos-carrito {
     position: absolute;
     right: 0;
     width: 350px;
     min-height: 350px;
-    background-color: #252525;
+    background-color: var(--marron);
     padding: 20px;
     border-bottom-left-radius: 15px;
     display: flex;
@@ -266,10 +298,13 @@ p {
 #total {
     font-size: 30px;
     font-weight: bold;
-    background: linear-gradient(#FFA100, #FB103D);
+    background: linear-gradient(var(--mostaza), var(--marron));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+/* ___________________________________RECOMENDACIONES____________________________________ */
 
 #recomendaciones {
     display: flex;
@@ -283,26 +318,22 @@ p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 325px;
+    width: 375px;
     height: 100px;
-    background: #252525;
-    border-radius: 15px;
+    background: var(--beige);
+    border-radius: 5px;
     padding: 15px;
     gap: 10px;
 }
 
 .recomendaciones-imgs {
-    max-width: 70px;
-    height: 100%;
-    border-radius: 16px;
+    width: auto;
+    height: 70px;
     object-fit: cover;
 }
 
 
-.subtitulos{
-    margin: 100px 50px 20px;
-    color: white;
-}
+/* ___________________________________CATEGORIAS____________________________________ */
 
 #categorias {
     display: flex;
@@ -311,39 +342,70 @@ p {
     gap: 20px;
 }
 
-#categorias div img {
+.img-cat {
     max-width: 100px;
-    max-height: fit-content;
+    max-height: 100px;
+    position: absolute;
+    bottom: 70px;
+}
+
+#img-cassettes {
+    position: absolute;
+    bottom: 80px;
 }
 
 #categorias div p {
     font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 40px;
 }
 
 .cards-c {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 200px;
-    min-width: 150px;
-    background: #252525;
-    border-radius: 15px;
+    min-width: 200px;
+    border-radius: 100px;
     cursor: pointer;
+    position: relative;
+}
+
+#populares {
+    background: var(--salmoncito);
+}
+#vinilos {
+    background: var(--azul);
+}
+#cassettes {
+    background: var(--verde);
+}
+#cds {
+    background: var(--celestito);
+}
+#libros {
+    background: var(--verdecito);
 }
 
 .cards-c span {
-    background-image: linear-gradient(90deg, #FFA100,#FB103D);
+    /* background-image: linear-gradient(90deg, #FFA100,#FB103D); */
+    background-image: linear-gradient(var(--mostaza), var(--marron));
     font-size: 10px;
     height: 5px;
     width: 20px;
     border-radius: 15px;
     margin-top: 15px;
+    position: absolute;
+    bottom: 20px;
 }
 
 .cat-selected {
     background: #909090;
 }
+
+
+/* ___________________________________PRODUCTOS____________________________________ */
 
 .datos-prod {
     display: flex;
@@ -360,14 +422,10 @@ p {
 .precio-prod {
     font-size: 20px;
     font-weight: bold;
-    background: linear-gradient(#FFA100, #FB103D);
+    /* background: linear-gradient(#FFA100, #FB103D); */    
+    background: linear-gradient(var(--mostaza), var(--marron));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.comentario-prod {
-    font-size: 10px;
-    color: #999999;
 }
 
 #productos{
@@ -387,32 +445,115 @@ p {
     justify-content: space-between;
     align-items: center;
     width: 280px;
-    height: 220px;
-    background: #252525;
-    border-radius: 15px;
+    height: 300px;
+    background: var(--beige);
+    border-radius: 5px;
     padding: 15px;
 }
 
 #pop-imgs, .productos-imgs{
-    width: 100%;
-    max-height: 120px;
+    width: auto;
+    height: 150px;
+    /* width: auto; */
     /* max-width: 150px; */
-    border-radius: 16px;
     object-fit: cover;
 }
 
-footer{
+
+/* ___________________________________FOOTER____________________________________ */
+
+footer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
-    padding: 70px 0;
-    color: white;
+    gap: 80px;
+    padding: 3rem 1rem;
+}
+
+.info_contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.links_footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logos_footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loguito_footer {
+    height: 200px;
+}
+
+.typo_footer {
+    font-family: 'Galada', sans-serif;
+    font-size: 80px;
+    color: var(--marron);
+    text-shadow: var(--borde_claro);
+}
+
+.redes_contacto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.link_redes {
+    font-size: 50px;
+    color: var(--marron);
+    text-shadow: var(--borde_fino);
+}
+
+.direccion_contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    overflow-wrap: break-word;
+    color: var(--marron);
+    gap: 20px;
+    padding-top: 2rem;
+}
+
+.derechos_footer {
+    color: var(--marron);
+    font-size: 20px;
+    text-align: center;
+}
+
+.extras_footer {
+    text-align: center;
+}
+
+.extras_footer a {
+    text-decoration: underline;
+    font-size: 15px;
+    color: var(--marron);
+    text-align: center;
 }
 
 
+/* ___________________________________BOTONES Y EXTRAS____________________________________ */
+
 .btn-ver {
-    background: linear-gradient(98.81deg, #FFA100 -0.82%, #FB103D 101.53%);
+    /* background: linear-gradient(98.81deg, #FFA100 -0.82%, #FB103D 101.53%); */
+    background: linear-gradient(98.81deg, var(--mostaza) -0.82%, var(--marron) 101.53%);
     box-shadow: 11px 28px 50px rgba(20, 78, 90, 0.2);
     border-radius: 15px;
     /* position: absolute; */
@@ -429,7 +570,8 @@ footer{
 }
 
 .btns-add {
-    background: linear-gradient(98.81deg, #FFA100 -0.82%, #FB103D 101.53%);
+    /* background: linear-gradient(98.81deg, #FFA100 -0.82%, #FB103D 101.53%); */
+    background: linear-gradient(98.81deg, var(--mostaza) -0.82%, var(--marron) 101.53%);
     box-shadow: 11px 28px 50px rgba(20, 78, 90, 0.2);
     border-radius: 15px;
     /* position: absolute; */

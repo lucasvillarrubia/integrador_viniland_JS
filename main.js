@@ -2,11 +2,10 @@
 // OBJETO
 
 class producto {
-        constructor (id, nombre, imagen, comentario, precio, categoria, xAgregado, enCarrito) {
+        constructor (id, nombre, imagen, precio, categoria, xAgregado, enCarrito) {
           this.id = id;
           this.nombre = nombre;
           this.imagen = imagen;
-          this.comentario = comentario;
           this.precio = precio;
           this.categoria = categoria;
           this.xAgregado = xAgregado;
@@ -18,38 +17,38 @@ class producto {
 // ARRAYS
 
 const productosStock = [
-        new producto (1, "La Mr. Pit", "./assets/imgs/imgpizzas/mr-pit.jfif", "Sólo para expertos", 350, "pizzas", 0, false),
-        new producto (2, "¡Q' Jamone!", "./assets/imgs/imgpizzas/Q-Jamone.jfif", "c/jamón crudo", 350, "pizzas", 0, false),
-        new producto (3, "La Charly García", "./assets/imgs/imgpizzas/Carly.jfif", "¡BASTA!", 380, "pizzas", 0, false),
-        new producto (4, "La Maradona", "./assets/imgs/imgpizzas/bennazianna.jfif", "¡Eterna!", 450, "pizzas", 0, false),
-        new producto (5, "Picantovich", "./assets/imgs/imgpizzas/Picantovich.jfif", "Pica 2 veces", 750, "pizzas", 0, false),
-        new producto (6, "La Hasbulla", "./assets/imgs/imgpizzas/Hasbulla.jfif", "En honor al 1", 990, "pizzas", 0, false),
-        new producto (7, "Leo Messi", "./assets/imgs/imgpizzas/Messi.jfif", "¡De pie señores!", 10, "pizzas", 0, false),
-        new producto (8, "Nick Gi", "./assets/imgs/imgpizzas/NickGi.jfif", "La que desaparece", 0, "pizzas", 0, false),
-        new producto (9, "Bennazianna", "./assets/imgs/imgpizzas/bennazianna.jfif", "La más completa", 3650, "pizzas", 0, false),
-        new producto (10, "Tronco-Pizza", "./assets/imgs/imgpizzas/tronco.jfif", "Para todo el día", 870, "pizzas", 0, false),
-        new producto (11, "Papas | Provenzal", "./assets/imgs/imgpizzas/papitas.jfif", "Van como piña", 360, "papas", 0, false),
+        new producto (1, "After Hours", "./assets/img/afterhours.png", 350, "vinilos", 0, false),
+        new producto (2, "Midnights", "./assets/img/midnights.png", 380, "vinilos", 0, false),
+        new producto (3, "Mr. Morale & the Big Steppers", "./assets/img/mrmorale.png", 450, "vinilos", 0, false),
+        new producto (4, "Future Nostalgia", "./assets/img/futurenostalgia.png", 750, "vinilos", 0, false),
+        new producto (5, "Superache", "./assets/img/superache.png", 990, "vinilos", 0, false),
+        new producto (6, "RENAISSANCE", "./assets/img/renaissance.png", 10, "vinilos", 0, false),
+        new producto (7, "Sour", "./assets/img/sour.png", 350, "vinilos", 0, false),
+        new producto (8, "Gemini Rights", "./assets/img/geminirights.png", 0, "vinilos", 0, false),
+        new producto (9, "Harry's House", "./assets/img/harryshouse.png", 3650, "vinilos", 0, false),
+        new producto (10, "MOTOMAMI", "./assets/img/motomami.png", 870, "vinilos", 0, false),
+        new producto (11, "Happier Than Ever", "./assets/img/happierthanever.png", 360, "vinilos", 0, false),
 
-        new producto (12, "", "", "", 0, "papas", 0, false),
-        new producto (13, "", "", "", 0, "papas", 0, false),
-        new producto (14, "", "", "", 0, "papas", 0, false),
-        new producto (15, "", "", "", 0, "papas", 0, false),
-        new producto (16, "", "", "", 0, "hamburguesas", 0, false),
-        new producto (17, "", "", "", 0, "hamburguesas", 0, false),
-        new producto (18, "", "", "", 0, "hamburguesas", 0, false),
-        new producto (19, "", "", "", 0, "hamburguesas", 0, false),
-        new producto (20, "", "", "", 0, "wraps", 0, false),
-        new producto (21, "", "", "", 0, "wraps", 0, false),
-        new producto (22, "", "", "", 0, "wraps", 0, false),
-        new producto (23, "", "", "", 0, "mexican", 0, false),
-        new producto (24, "", "", "", 0, "mexican", 0, false),
-        new producto (25, "", "", "", 0, "mexican", 0, false),
-        new producto (26, "", "", "", 0, "mexican", 0, false),
-        new producto (27, "", "", "", 0, "mexican", 0, false),
-        new producto (28, "", "", "", 0, "batidos", 0, false),
-        new producto (29, "", "", "", 0, "batidos", 0, false),
-        new producto (30, "", "", "", 0, "batidos", 0, false),
-        new producto (31, "", "", "", 0, "batidos", 0, false)
+        new producto (12, "", "", 0, "cassettes", 0, false),
+        new producto (13, "", "", 0, "cassettes", 0, false),
+        new producto (14, "", "", 0, "cassettes", 0, false),
+        new producto (15, "", "", 0, "cassettes", 0, false),
+        new producto (16, "", "", 0, "cassettes", 0, false),
+        new producto (17, "", "", 0, "cassettes", 0, false),
+        new producto (18, "", "", 0, "cassettes", 0, false),
+        new producto (19, "", "", 0, "cassettes", 0, false),
+        new producto (20, "", "", 0, "cds", 0, false),
+        new producto (21, "", "", 0, "cds", 0, false),
+        new producto (22, "", "", 0, "cds", 0, false),
+        new producto (23, "", "", 0, "cds", 0, false),
+        new producto (24, "", "", 0, "cds", 0, false),
+        new producto (25, "", "", 0, "cds", 0, false),
+        new producto (26, "", "", 0, "libros", 0, false),
+        new producto (27, "", "", 0, "libros", 0, false),
+        new producto (28, "", "", 0, "libros", 0, false),
+        new producto (29, "", "", 0, "libros", 0, false),
+        new producto (30, "", "", 0, "libros", 0, false),
+        new producto (31, "", "", 0, "libros", 0, false)
 ];
 
 let productosCarrito = [];
@@ -60,13 +59,11 @@ let productosRecomendados = [];
 // ELEMENTOS DE HTML
 
 const populares = document.getElementById("populares");
-const pizzas = document.getElementById("pizzas");
-const hamburguesas = document.getElementById("hamburguesas");
-const papas = document.getElementById("papas");
-const wraps = document.getElementById("wraps");
-const mexican = document.getElementById("mexican");
-const batidos = document.getElementById("batidos");
-const categoriasProductos = [populares, pizzas, hamburguesas, papas, wraps, mexican, batidos];
+const vinilos = document.getElementById("vinilos");
+const cassettes = document.getElementById("cassettes");
+const cds = document.getElementById("cds");
+const libros = document.getElementById("libros");
+const categoriasProductos = [populares, vinilos, cassettes, cds, libros];
 
 const seccionProductos = document.getElementById("productos");
 const seccionRecomendaciones = document.getElementById("recomendaciones");
@@ -116,7 +113,6 @@ const mostrar_producto = (seccion, producto) => {
                         <div class="datos-prod">
                                 <div class="info-prod">
                                         <p class="nombre-prod">${producto.nombre}</p>
-                                        <p class="comentario-prod">${producto.comentario}</p>
                                         <p class="precio-prod">$${producto.precio}</p>
                                 </div>
                                 <button class="btns-add" id="${seccion.id}-${producto.id}">AGREGAR</button>

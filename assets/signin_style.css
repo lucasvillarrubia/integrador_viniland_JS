@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Galada&display=swap');
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+        font-family: 'Anybody', sans-serif;
+        max-width: 100%;
+}
+
+body {
+        width: 100%;
+}
+
+html {
+        scroll-behavior: smooth;
+}
+
+:root {
+        --marron: rgb(86, 44, 44);
+        --beige: rgb(240, 240, 225);
+        --mostaza: rgb(255, 214, 92);
+        --verde: rgb(48, 107, 52);
+        --verdecito: rgb(200, 224, 135);
+        --azul: rgb(43, 65, 98);
+        --celestito: rgb(168, 213, 226);
+        --mantecol: rgb(220, 195, 170);
+        --salmoncito: rgb(245, 155, 113);
+        --transparente: rgba(1, 1, 1, 0);
+        --borde_texto:  -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        --borde_claro: -1px -1px 0 var(--mantecol), 1px -1px 0 var(--mantecol), -1px 1px 0 var(--mantecol), 1px 1px 0 var(--mantecol);
+        --borde_fino: -1px -1px 0 var(--marron), 1px -1px 0 var(--marron), -1px 1px 0 var(--marron), 1px 1px 0 var(--marron);
+}
+
+
+/* -------------------- NAVBAR -------------------- */
+header {
+        background: var(--marron);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100px;
+}
+
+.logo_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        margin: 0 auto;
+}
+
+.logo_header i {
+        font-size: 25px;
+        color: var(--mantecol);
+        text-shadow: var(--borde_texto);
+}
+
+
+/* -------------------- BIENVENIDA -------------------- */
+#bienvenida {
+        background: url(https://cdn-0.studybreaks.com/wp-content/uploads/2022/05/samuel-regan-asante-5j7nQv-jaVM-unsplash-scaled-e1651881324847.jpg?ezimgfmt=rs:0x0/rscb6/ng:webp/ngcb6) no-repeat center/cover;
+}
+
+.cont_bienvenida {
+        background-color: rgba(85, 45, 45, 0.8);
+        padding: 3rem 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+}
+
+.titulo_bienvenida {
+        font-family: 'Galada', sans-serif;
+        text-align: center;
+        overflow-wrap: break-word;
+        font-size: 50px;
+        color: var(--beige);
+        text-shadow: var(--borde_texto);
+        line-height: 50px;
+        margin-bottom: 50px;
+}
+
+.texto_bienvenida {
+        text-align: center;
+        text-justify: auto;
+        font-style: italic;
+        text-shadow: var(--borde_fino);
+        color: var(--beige);
+        padding: 10px;
+}
+
+.formulario_usuario {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 50px;
+        width: 100%;
+}
+
+.formulario_usuario div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+}
+
+#nombre_usuario, #contrasenia_usuario, #correo_usuario {
+        background-color: var(--beige);
+        border: none;
+        outline: none;
+        padding: 1rem;
+        border-radius: 15px;
+        font-size: 20px;
+        width: 100%;
+}
+
+.formulario_usuario label {
+        font-size: 20px;
+        color: var(--beige);
+        text-shadow: var(--borde_texto);
+        text-align: center;
+        width: 100%;
+}
+
+#texto_newsletter {
+        font-size: 15px;
+        text-shadow: none;
+        font-style: italic;
+}
+
+#newsletter {
+        height: 20px;
+}
+
+#enviar {
+        cursor: pointer;
+        background: var(--mantecol);
+}
+
+.botones {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 10px;
+}
+
+.boton {
+        border: 5px solid black;
+        padding: 1rem;
+        border-radius: 30px;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+}
+
+.contact {
+        background: var(--mantecol);
+        color: black;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+        background: var(--azul);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 80px;
+        padding: 3rem 1rem;
+}
+
+.info_contacto {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+}
+
+.links_footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+}
+
+.logos_footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+}
+
+.loguito_footer {
+        height: 200px;
+}
+
+.typo_footer {
+        font-family: 'Galada', sans-serif;
+        font-size: 80px;
+        color: var(--marron);
+        text-shadow: var(--borde_claro);
+}
+
+.redes_contacto {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+}
+
+.link_redes {
+        font-size: 50px;
+        color: var(--beige);
+        text-shadow: var(--borde_fino);
+}
+
+.direccion_contacto {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        overflow-wrap: break-word;
+        color: var(--beige);
+        gap: 20px;
+        padding-top: 2rem;
+}
+
+.derechos_footer {
+        color: var(--mantecol);
+        font-size: 20px;
+        text-align: center;
+}
+
+.extras_footer {
+        text-align: center;
+}
+
+.extras_footer a {
+        text-decoration: underline;
+        font-size: 15px;
+        color: var(--mantecol);
+        text-align: center;
+}
+
+
+@media screen and (min-width: 1024px) {
+
+        #container {
+                background: linear-gradient(0deg, var(--celestito) 0%, var(--beige) 50%, var(--salmoncito) 100%);
+                padding: 5% 0;
+        }
+
+        /* -------------------- NAVBAR -------------------- */
+        header {
+                padding: 0;
+                position: sticky;
+                top: 0;
+                gap: 100px;
+                min-height: 120px;
+        }
+
+        header, main, footer {
+                margin: auto;
+                max-width: 90%;
+        }
+
+        .logo_header {
+                height: 150px;
+                gap: 10px;
+        }
+
+        .logo_header i {
+                font-size: 50px;
+        }
+
+        /* -------------------- BIENVENIDA -------------------- */
+        .cont_bienvenida {
+                max-width: none;
+        }
+        
+        .titulo_bienvenida {
+                font-size: 75px;
+                max-width: none;
+                line-height: 200px;
+                margin: 0;
+        }
+        
+        .texto_bienvenida {
+                text-align: center;
+                font-size: 25px;
+                line-height: 30px;
+        }
+
+        .formulario_usuario {
+                gap: 50px;
+                margin-bottom: 50px;
+        }
+        
+        .formulario_usuario div {
+                gap: 20px;
+        }
+        
+        #nombre_usuario, #contrasenia_usuario, #correo_usuario {
+                width: 500px;
+                font-size: 30px;
+        }
+
+        .formulario_usuario label {
+                font-size: 30px;
+                width: 500px;
+        }
+
+        #texto_newsletter {
+                font-size: 20px;
+                max-width: 200px;
+        }
+
+        .botones {
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+        }
+        
+        .boton {
+                font-size: 30px;
+                text-align: center;
+        }
+        
+        /* -------------------- FOOTER -------------------- */
+        footer {
+                padding: 3rem 3rem 3rem 5rem;
+        }
+
+        .info_contacto {
+                flex-direction: row;
+                gap: 150px;
+        }
+
+        .links_footer {
+                flex-direction: column;
+        }
+
+        .logos_footer {
+                flex-direction: row;
+        }
+
+        .redes_contacto {
+                gap: 50px;
+                padding-left: 50px;
+        }
+
+        .direccion_contacto {
+                text-align: left;
+                align-items: baseline;
+                font-size: 30px;
+        }       
+}
