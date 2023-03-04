@@ -30,6 +30,8 @@ body {
     --celestito: rgb(168, 213, 226);
     --mantecol: rgb(220, 195, 170);
     --salmoncito: rgb(245, 155, 113);
+    --gris: rgb(119, 144, 113);
+    --aguamarina: rgb(192, 255, 228);
     --transparente: rgba(1, 1, 1, 0);
     --borde_texto:  -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
     --borde_claro: -1px -1px 0 var(--mantecol), 1px -1px 0 var(--mantecol), -1px 1px 0 var(--mantecol), 1px 1px 0 var(--mantecol);
@@ -41,15 +43,17 @@ body {
 
 header {
     background-color: var(--transparente);
+    background-color: var(--mantecol);
     margin: 0 auto;
     max-width: 1300px;
-    height: 150px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 80px 0px 50px;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 .logo-container img {
@@ -172,6 +176,7 @@ h6 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
+    z-index: 2;
 }
 
 #cart a {
@@ -179,10 +184,14 @@ h6 {
     font-size: 12px;
 }
 
-#cart span {
+.separador {
     height: 1px;
     width: 325px;
     background: #606060;
+}
+
+.text-cart {
+    color: #FFFFFF;
 }
 
 #carrito {
@@ -214,34 +223,35 @@ h6 {
 #carrito p {
     color: #909090;
     font-size: 12px;
-    width: 150px;
+    width: 110px;
 }
 
 .cards-carrito {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 280px;
-    height: 80px;
+    height: 100px;
     background: #353535;
     border-radius: 15px;
     padding: 15px;
     gap: 10px;
 }
 
-.cards-carrito button {
+/* .cards-carrito button {
     width: 20px;
     height: 20px;
     font-size: 1px;
     border-radius: 5px;
-}
+} */
 
 .carrito-imgs {
-    max-width: 50px;
-    height: 100%;
-    border-radius: 16px;
+    max-width: 80px;
+    height: 50px;
+    /* border-radius: 16px; */
     object-fit: cover;
+    padding-left: 15px;
 }
 
 .datos-carrito {
@@ -372,20 +382,20 @@ h6 {
     position: relative;
 }
 
-#populares {
+.populares {
     background: var(--salmoncito);
 }
-#vinilos {
-    background: var(--azul);
-}
-#cassettes {
-    background: var(--verde);
-}
-#cds {
+.vinilos {
     background: var(--celestito);
 }
-#libros {
+.cassettes {
     background: var(--verdecito);
+}
+.cds {
+    background: var(--gris);
+}
+.libros {
+    background: var(--aguamarina);
 }
 
 .cards-c span {
@@ -401,7 +411,7 @@ h6 {
 }
 
 .cat-selected {
-    background: #909090;
+    border: #000 solid 5px;
 }
 
 
@@ -445,7 +455,7 @@ h6 {
     justify-content: space-between;
     align-items: center;
     width: 280px;
-    height: 300px;
+    height: 280px;
     background: var(--beige);
     border-radius: 5px;
     padding: 15px;
@@ -569,7 +579,7 @@ footer {
     border: none;
 }
 
-.btns-add {
+.card-btn {
     /* background: linear-gradient(98.81deg, #FFA100 -0.82%, #FB103D 101.53%); */
     background: linear-gradient(98.81deg, var(--mostaza) -0.82%, var(--marron) 101.53%);
     box-shadow: 11px 28px 50px rgba(20, 78, 90, 0.2);
@@ -588,6 +598,33 @@ footer {
     border: none;
 }
 
+.carrito-btns-add {
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.carrito-btns-rmv {
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.recomendaciones-btns-rmv, .productos-btns-rmv, .recomendaciones-count, .productos-count {
+    display: none;
+}
+
+.carrito-count {
+    width: 20px;
+    height: 25px;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+}
+
 #exit-cart {
     height: 25px;
     width: 25px;
@@ -600,11 +637,21 @@ footer {
     height: 40px;
     border-radius: 10px;
     margin-top: 10px;
+    background: gray;
 }
 
 .cards-carrito div {
-    justify-content: left;
-    align-items: left;
+    justify-content: space-between;
+    width: auto;
+}
+
+.controles-prod {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    /* padding-right: 15px; */
 }
 
 #empty {
@@ -613,8 +660,294 @@ footer {
     font-size: 15px;
     color: #909090;
     font-family: "Montserrat";
+    margin: auto;
+    padding: 10px 0;
 }
 
 #recomendaciones, #categorias, #productos {
     margin: 0 50px;
+}
+
+
+@media screen and (max-width: 720px) {
+
+    /* -------------------- NAVBAR -------------------- */
+    header {
+        background-color: var(--marron);
+        max-width: none;
+        height: 75px;
+        padding: 0px 25px 0px 10px;
+    }
+
+    .logo-container {
+        height: 60px;
+        width: 60px;
+    }
+
+    .logo-container img {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .navbar-list{
+        gap: 25px;
+    }
+    
+    .navbar i {
+        font-size: 20px;
+        color: var(--mantecol);
+        cursor: pointer;
+    }
+    
+    #home {
+        display: none;
+    }
+
+    /* #toggle-menu {
+        display:none;
+    } */
+
+    /* -------------------- HERO -------------------- */
+    
+    #hero {
+        flex-direction: column;
+        align-items: center;
+        padding: 80px 0 40px 0;
+        margin: 0 auto;
+        gap: 10px;
+    }
+    
+    .titles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .img-hero{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .titles a {
+        color: white;
+    }
+    
+    #img-main{
+        /* position: absolute; */
+        width: 300px;
+        /* top: 200px; */
+        /* right: 230px; */
+    }
+    
+    h1 {
+        font-family: 'Galada', sans-serif;
+        text-align: center;
+        overflow-wrap: break-word;
+        font-size: 75px;
+        color: var(--marron);
+        text-shadow: none;
+    }
+    
+    h2 {
+        /* position: absolute; */
+        width: 639px;
+        height: 90px;
+        /* left: 250px; */
+        /* top: 270px; */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 51px;
+        line-height: 66.82px;
+    }
+    
+    h4 {
+        font-size: 16px;
+    }
+    h6 {
+        /* position: absolute; */
+        width: 639px;
+        height: 90px;
+        /* left: 250px; */
+        /* top: 330px; */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 21px;
+        line-height: 56px;
+    }
+    
+    .subtitulos{
+        margin: 100px 50px 20px;
+        color: var(--marron);
+        font-size: 20px;
+    }
+
+    /* -------------------- PRODUCTOS -------------------- */
+    
+    .datos-prod {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .nombre-prod {
+        font-size: 15px;
+    }
+    
+    .precio-prod {
+        font-size: 30px;
+        font-weight: bold;
+        /* background: linear-gradient(#FFA100, #FB103D); */    
+        background: linear-gradient(var(--mostaza), var(--marron));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    #productos{
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .cards-productos{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 280px;
+        height: 280px;
+        background: var(--beige);
+        border-radius: 10px;
+        padding: 15px;
+    }
+    
+    #pop-imgs, .productos-imgs{
+        width: auto;
+        height: 150px;
+        /* width: auto; */
+        /* max-width: 150px; */
+        object-fit: cover;
+    }
+    
+    /* -------------------- CARRITO -------------------- */
+
+    #carrito {
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+        max-height: 160px;
+        overflow-y: scroll;
+        overflow-x: auto;
+    }
+
+    .datos-carrito {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        min-height: 350px;
+        background-color: var(--marron);
+        padding: 20px;
+        border-bottom-left-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+        gap: 20px;
+    }
+
+    #carrito::-webkit-scrollbar {
+        display: none;
+    }
+    
+    #carrito::-webkit-scrollbar-button {
+        display: none;
+    }
+    
+    #carrito::-webkit-scrollbar-thumb {
+        display: none;
+    }
+
+
+    /* -------------------- RECOMENDACIONES -------------------- */
+
+    #recomendaciones {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        margin: 0;
+    }
+    
+    .cards-recomendaciones {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 250px;
+        height: 80px;
+        background: var(--beige);
+        border-radius: 5px;
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .cards-recomendaciones p {
+        font-size: 13px;
+    }
+
+    .cards-recomendaciones button {
+        width: 50px;
+        font-size: 7px;
+    }
+
+    .recomendaciones-imgs {
+        width: auto;
+        height: 40px;
+        object-fit: cover;
+    }
+
+    /* -------------------- CATEGORIAS -------------------- */
+    
+    #categorias {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow-y: scroll;
+        gap: 20px;
+        margin: 0 0 0 30px;
+    }
+    
+    .img-cat {
+        max-width: 60px;
+        max-height: 60px;
+        position: absolute;
+        bottom: 70px;
+    }
+    
+    .cards-c {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 150px;
+        min-width: 150px;
+        border-radius: 100px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    /* -------------------- FOOTER -------------------- */
+    
 }

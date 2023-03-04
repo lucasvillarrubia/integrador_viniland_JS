@@ -4,9 +4,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>NucbaZappi!</title>
+	<title>ViniLand</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 	<link rel="stylesheet" href="style.css">
+  	<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/logo.png">
+  	<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/logo.png">
 </head>
 <body>
 	<main>
@@ -19,7 +21,7 @@
 			<!-- Navbar -->
 			<nav class="navbar">
 				<ul class="navbar-list">
-					<li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+					<li id="home"><a href="#"><i class="fa-solid fa-house"></i></a></li>
 					<li id="open-cart"><i class="fa-solid fa-cart-shopping"></i></li>
 					<li><a href="./assets/login.html"><i class="fa-solid fa-user"></i></a></li>
 				</ul>
@@ -31,30 +33,30 @@
 			<div class="datos-carrito">
 				<button id="exit-cart" class="btn-ver">X</button>
 				<div>
-					<p>Tus productos</p>
+					<p class="text-cart">Tus productos</p>
+					<h3 id="empty">Todavía no agregaste ningún producto</h3>
 					<div id="carrito">
-						<h3 id="empty">Todavía no agregaste ningún producto</h3>
 					</div>
 				</div>
 				<div class="numeros-carrito">
 					<div class="gastos-carrito">
 						<div>
-							<p>Subtotal:</p>
-							<p id="subtotal">$0</p>
+							<p class="text-cart">Subtotal:</p>
+							<p id="subtotal" class="text-cart">$0</p>
 						</div>
 						<div>
-							<p>Envío:</p>
-							<p id="envio">Gratis</p>
+							<p class="text-cart">Envío:</p>
+							<p id="envio" class="text-cart">Gratis</p>
 						</div>
 					</div>
-					<span></span>
+					<span class="separador"></span>
 					<div class="final-compra">
 						<div>
-							<p>Total:</p>
-							<p id="total">$0</p>
+							<p class="text-cart">Total:</p>
+							<p id="total" class="text-cart">$0</p>
 						</div>
 						<button id="purchase" class="btn-ver">COMPRAR</button>
-						<a id="view-more" href="#categorias">Ver más productos</a>
+						<a id="view-more" href="#recomendaciones">Ver más productos</a>
 					</div>
 				</div>
 			</div>
@@ -68,7 +70,7 @@
 				<button class="btn-ver"><a href="#recomendaciones">VER MÁS</a></button>
 			</div>
 			<div class="img-hero">
-				<img src="/assets/img/hero.png" alt="Zappi Icon" id="img-pizza">
+				<img src="/assets/img/hero.png" alt="vinis icon" id="img-main">
 			</div>
 		</section>
 
@@ -80,27 +82,27 @@
 		<!-- Categorias -->
 		<p class="subtitulos"><b>Categorias</b></p>
 		<section id="categorias">
-			<div id="populares" class="cards-c cat-selected">
+			<div id="populares" class="populares cards-c cat-selected">
 				<img class="img-cat" src="./assets/img/favoritos.png" alt="popurri">
 				<p>Más buscados</p>
 				<span></span>
 			</div>
-			<div id="vinilos" class="cards-c">
+			<div id="vinilos" class="vinilos cards-c">
 				<img class="img-cat" src="./assets/img/vinilo.webp" alt="vinilo">
 				<p>Vinilos</p>
 				<span></span>
 			</div>
-			<div id="cassettes" class="cards-c">
+			<div id="cassettes" class="cassettes cards-c">
 				<img id="img-cassettes" class="img-cat" src="./assets/img/cassette.png" alt="cassette">
 				<p>Cassettes</p>
 				<span></span>
 			</div>
-			<div id="cds" class="cards-c">
+			<div id="cds" class="cds cards-c">
 				<img class="img-cat" src="./assets/img/cd.webp" alt="cd">
 				<p>CDs</p>
 				<span></span>
 			</div>
-			<div id="libros" class="cards-c">
+			<div id="libros" class="libros cards-c">
 				<img class="img-cat" src="./assets/img/libro.png" alt="libro">
 				<p>Libros</p>
 				<span></span>
@@ -129,13 +131,12 @@
                                 </div>
                                 <div class="direccion_contacto">
                                         <p class="ubicacion"><i class="fa-solid fa-location-dot"></i> Antezana 247, Ciudad de Buenos Aires, Argentina</p>
-                                        <p class="telefono"><i class="fa-solid fa-phone"></i> 53-53-456 (nanananananana)</p>
+                                        <p class="telefono"><i class="fa-solid fa-phone"></i> 03-03-456 (nanananananana)</p>
                                         <p class="correo"><i class="fa-solid fa-envelope"></i> villar.lucase@gmail.com</p>
                                 </div>
                         </div>
                         <div class="extras_footer">
-                                <p class="derechos_footer">2022 ViniLand ® - All Rights Reserved</p>
-                                <a href="#">Denunciar</a> |
+                                <p class="derechos_footer">2023 ViniLand ® - All Rights Reserved</p>
                                 <a href="#">Términos y Condiciones</a> |
                                 <a href="#">Política de Privacidad</a>
                         </div>

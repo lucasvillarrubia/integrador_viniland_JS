@@ -74,32 +74,63 @@ const closeCarrito = document.getElementById("exit-cart");
 const botonComprar = document.getElementById("purchase");
 const verMasProd = document.getElementById("view-more");
 const carritoVacio = document.getElementById("empty");
+const total = document.getElementById("total");
+const subtotal = document.getElementById("subtotal");
 
 
 
 // CARRITO
 
-const actualizar_carrito = (producto) => {
-        let indexAgregado = productosStock.find(agregado => agregado.id == producto.id).id;
-        if (!productosStock[indexAgregado].enCarrito) {
-                productosCarrito.push(producto);
-                mostrar_producto (seccionCarrito, producto);
-                productosStock[indexAgregado].enCarrito = true;
+function sumar_total () {
+        let suma_productos = 0;
+        if (productosCarrito.length != 0) {
+                productosCarrito.forEach(agregado => suma_productos += (agregado.precio) * (agregado.xAgregado));
         }
-        productosStock[indexAgregado].xAgregado++;
+        return suma_productos;
+}
 
-        // addEventListener ('click', agregar_producto);
-        // // si la cantidad del producto en carrito es 0:
-        // addEventListener ('click', eliminar_producto);
+function aviso_compra () {
+        alert("Perfecto! Compra realizada.");
+}
 
-        // mostrar_precio_total ();
-        // actualizar_local_storage ();
-        console.log(productosCarrito.length);
-        // if (!productosCarrito.length === 0) {
-        //         carritoVacio.classList.remove("invisible"); 
-        // }
-        // else {
-        // };
+function rechazo_compra () {
+        alert("No agregaste nada al carrito.");
+}
+
+const actualizar_carrito = (producto, accion) => {
+        let indexModificado = productosStock.find(modificado => modificado.id == producto.id).id;
+        switch (accion) {
+                case "agregar":
+                        if (productosCarrito.length == 0) {
+                                carritoVacio.style.display = "none";
+                                botonComprar.removeEventListener('click', rechazo_compra);
+                                botonComprar.addEventListener('click', aviso_compra);
+                        }
+                        if (!productosStock[indexModificado-1].enCarrito) {
+                                productosCarrito.push(producto);
+                                productosStock[indexModificado-1].enCarrito = true;
+                        }
+                        productosStock[indexModificado-1].xAgregado++;
+                        botonComprar.style.background = "linear-gradient(98.81deg, var(--mostaza) -0.82%, var(--marron) 101.53%)";
+                        break;
+                case "eliminar":
+                        productosStock[indexModificado-1].xAgregado--;
+                        if (productosStock[indexModificado-1].xAgregado == 0) {
+                                productosStock[indexModificado-1].enCarrito = false;
+                                productosCarrito = productosCarrito.filter(agregado => agregado.enCarrito);
+                                alert(`Sacaste un ${producto.nombre} del carrito!`);
+                        }
+                        if (productosCarrito.length == 0) {
+                                carritoVacio.style.display = "block";
+                                botonComprar.style.background = "gray";
+                                botonComprar.removeEventListener('click', aviso_compra);
+                                botonComprar.addEventListener('click', rechazo_compra);
+                        }
+                        break;
+        }
+        subtotal.innerHTML = "$ " + sumar_total();
+        total.innerHTML = "$" + sumar_total();
+        localStorage.setItem('productosCarrito', JSON.stringify(productosCarrito));
 };
 
 
@@ -115,7 +146,11 @@ const mostrar_producto = (seccion, producto) => {
                                         <p class="nombre-prod">${producto.nombre}</p>
                                         <p class="precio-prod">$${producto.precio}</p>
                                 </div>
-                                <button class="btns-add" id="${seccion.id}-${producto.id}">AGREGAR</button>
+                                <div class="controles-prod">
+                                        <button class="${seccion.id}-btns-rmv card-btn" id="${seccion.id}-${producto.id}-rmv">-</button>
+                                        <span class="${seccion.id}-count" id="${seccion.id}-${producto.id}-cant"></span>
+                                        <button class="${seccion.id}-btns-add card-btn" id="${seccion.id}-${producto.id}">AGREGAR</button>
+                                </div>
                         </div>
 		</div>
                 `;
@@ -147,12 +182,21 @@ function render_recomendaciones () {
 const render_productos = (seccion, categoria) => {
         let productos_renderizados = [];
         let botones_productos = [];
+        let botones_carrito_add = [];
+        let botones_carrito_elim = [];
         switch (seccion) {
                 case "recomendaciones":
                         productos_renderizados = render_recomendaciones ();
                         break;
                 case "carrito":
-                        productosCarrito.forEach ((producto) => mostrar_producto (seccionCarrito, producto));
+                        seccionCarrito.innerHTML = "";
+                        JSON.parse(localStorage.getItem('productosCarrito')).forEach((producto) => {
+                                if (producto.enCarrito) {
+                                        mostrar_producto (seccionCarrito, producto);
+                                        let cantidad_carrito = document.getElementById("carrito-" + producto.id + "-cant");
+                                        cantidad_carrito.innerHTML = producto.xAgregado;
+                                }
+                        });
                         break;
                 default:
                         if (!categoria) {
@@ -166,12 +210,30 @@ const render_productos = (seccion, categoria) => {
         productos_renderizados.forEach (producto => {
                 botones_productos[productos_renderizados.indexOf(producto)] = document.getElementById(seccion + "-" + producto.id);
                 botones_productos[productos_renderizados.indexOf(producto)].addEventListener('click', () => {
-                        actualizar_carrito(productosStock.find(stock => stock.id == producto.id));
-                        alert(`Agregaste ${producto.nombre}! al carrito!`);
-                        carritoVacio.style.display = "none";
-                        console.log(carritoVacio);
+                        actualizar_carrito(productosStock.find(stock => stock.id == producto.id), "agregar");
+                        alert(`Agregaste ${producto.nombre} al carrito!`);
+                        render_productos ("carrito");
                 });
         });
+        if (productosCarrito.length > 0) {
+                productosCarrito.forEach (producto => {
+                        console.log("LLEGUÉ ACÁ TAMBIÉN");
+                        botones_carrito_elim[productosCarrito.indexOf(producto)] = document.getElementById("carrito-" + producto.id + "-rmv");
+                        botones_carrito_elim[productosCarrito.indexOf(producto)].addEventListener('click', () => {
+                                actualizar_carrito(productosStock.find(stock => stock.id == producto.id), "eliminar");
+                                render_productos ("carrito");
+                        });
+                        botones_carrito_add[productosCarrito.indexOf(producto)] = document.getElementById("carrito-" + producto.id);
+                        botones_carrito_add[productosCarrito.indexOf(producto)].innerHTML = "+";
+                        botones_carrito_add[productosCarrito.indexOf(producto)].addEventListener('click', () => {
+                                actualizar_carrito(productosStock.find(stock => stock.id == producto.id), "agregar");
+                                render_productos ("carrito");
+                        });
+                });
+        }
+        
+        console.log("LLEGUÉ");
+        
 };
 
 
@@ -185,13 +247,14 @@ const init = () => {
                 categoria.addEventListener('click', () => {
                         categoriasProductos.forEach((cat) => cat.classList.remove("cat-selected"));
                         categoria.classList.add("cat-selected");
-                        render_productos("productos", categoria.id);
+                        productos_mostrados = render_productos("productos", categoria.id);
                 })
         });
         openCarrito.addEventListener('click', () => carrito.classList.remove("invisible"));
         closeCarrito.addEventListener('click', () => carrito.classList.add("invisible"));
         verMasProd.addEventListener('click', () => carrito.classList.add("invisible"));
-        botonComprar.addEventListener('click', () => alert("Perfecto! Compra realizada."));
+        botonComprar.addEventListener('click', rechazo_compra);
+        // botonComprar.addEventListener('click', () => alert("Perfecto! Compra realizada."));
 };
 
 localStorage.setItem('productosStock', JSON.stringify(productosStock));
@@ -199,3 +262,21 @@ localStorage.setItem('productosCarrito', JSON.stringify(productosCarrito));
 localStorage.setItem('productosRecomendados', JSON.stringify(productosRecomendados));
 // console.log (papas.id);
 init();
+
+
+
+// 👉🏻 El navbar al scrollear está por debajo de las categorias. Lo podés solucionar rapidamente agregandole un z-index.
+// 👉🏻 El carrito no está mostrando el total y no se puede manejar la cantidad de cada producto.
+// ⚠️ Revisate como está armado el del Nucba NFT para que lo puedas realizar.
+// ⚠️ La página no está responsive que era requisito para aprobar este integrador, cuidado ahi! 
+
+// addEventListener ('click', agregar_producto);
+// // si la cantidad del producto en carrito es 0:
+// addEventListener ('click', eliminar_producto);
+
+// mostrar_precio_total ();
+// actualizar_local_storage ();
+// console.log(productosCarrito);
+// console.log(carritoVacio);
+
+
