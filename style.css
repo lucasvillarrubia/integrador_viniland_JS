@@ -724,12 +724,12 @@ footer {
         margin: 0 auto;
         gap: 100px;
         background-color: rgba(85, 45, 45, 0.85);
-        height: 100%;
+        height: 100vh;
     }
     
     #hero {
         background: url(https://cdn-0.studybreaks.com/wp-content/uploads/2022/05/samuel-regan-asante-5j7nQv-jaVM-unsplash-scaled-e1651881324847.jpg?ezimgfmt=rs:0x0/rscb6/ng:webp/ngcb6) no-repeat center/cover;
-        height: 100%;
+        height: 100vh;
     }
     
     .titles {
