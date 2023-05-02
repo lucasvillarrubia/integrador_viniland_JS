@@ -121,7 +121,6 @@ const actualizar_carrito = (producto, accion) => {
                                 if (confirm (`Se eliminará ${producto.nombre} del carrito`)) {
                                         productosStock[indexModificado].xAgregado--;
                                         productosCarrito = productosCarrito.filter(agregado => agregado.xAgregado > 0);
-                                                // alert(`Sacaste un ${producto.nombre} del carrito!`);
                                 }
                         }
                         else {
@@ -233,7 +232,6 @@ const render_productos = (seccion, categoria) => {
         });
         if (productosCarrito.length > 0) {
                 productosCarrito.forEach (producto => {
-                        console.log("LLEGUÉ ACÁ TAMBIÉN");
                         botones_carrito_elim[productosCarrito.indexOf(producto)] = document.getElementById("carrito-" + producto.id + "-rmv");
                         botones_carrito_elim[productosCarrito.indexOf(producto)].addEventListener('click', () => {
                                 actualizar_carrito(productosStock.find(stock => stock.id == producto.id), "eliminar");
@@ -247,9 +245,6 @@ const render_productos = (seccion, categoria) => {
                         });
                 });
         }
-        
-        console.log("LLEGUÉ");
-        
 };
 
 
@@ -270,29 +265,10 @@ const init = () => {
         closeCarrito.addEventListener('click', () => carrito.classList.add("invisible"));
         verMasProd.addEventListener('click', () => carrito.classList.add("invisible"));
         botonComprar.addEventListener('click', rechazo_compra);
-        // botonComprar.addEventListener('click', () => alert("Perfecto! Compra realizada."));
 };
 
 localStorage.setItem('productosStock', JSON.stringify(productosStock));
 localStorage.setItem('productosCarrito', JSON.stringify(productosCarrito));
 localStorage.setItem('productosRecomendados', JSON.stringify(productosRecomendados));
-// console.log (papas.id);
+
 init();
-
-
-
-// 👉🏻 El navbar al scrollear está por debajo de las categorias. Lo podés solucionar rapidamente agregandole un z-index.
-// 👉🏻 El carrito no está mostrando el total y no se puede manejar la cantidad de cada producto.
-// ⚠️ Revisate como está armado el del Nucba NFT para que lo puedas realizar.
-// ⚠️ La página no está responsive que era requisito para aprobar este integrador, cuidado ahi! 
-
-// addEventListener ('click', agregar_producto);
-// // si la cantidad del producto en carrito es 0:
-// addEventListener ('click', eliminar_producto);
-
-// mostrar_precio_total ();
-// actualizar_local_storage ();
-// console.log(productosCarrito);
-// console.log(carritoVacio);
-
-

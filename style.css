@@ -18,7 +18,6 @@ body {
     width: 100%;
     background: var(--mantecol);
     font-family: "Montserrat", sans-serif;
-    /* overflow-x: hidden; */
 }
 
 :root {
@@ -46,7 +45,6 @@ header {
     background-color: var(--transparente);
     background-color: var(--mantecol);
     margin: 0 auto;
-    /* max-width: 1300px; */
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -77,9 +75,35 @@ header {
     cursor: pointer;
 }
 
-/* #toggle-menu {
-    display:none;
-} */
+#home::after, #user::after {
+    position: relative;
+    content: "";
+    font-size: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    top: 5px;
+    left: -2px;
+    display: block;
+    transition: all 0.05s;
+}
+
+#open-cart::after {
+    position: relative;
+    content: "";
+    font-size: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    top: 5px;
+    display: block;
+    transition: all 0.05s;
+}
+
+#home:hover::after, #user:hover::after, #open-cart:hover::after {
+    width: 100%;
+    border: 2px solid var(--marron);
+}
 
 
 /* ___________________________________HERO Y GENERALES____________________________________ */
@@ -138,11 +162,8 @@ h1 {
 }
 
 h2 {
-    /* position: absolute; */
     width: 639px;
     height: 90px;
-    /* left: 250px; */
-    /* top: 270px; */
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
@@ -154,11 +175,8 @@ h4 {
     font-size: 16px;
 }
 h6 {
-    /* position: absolute; */
     width: 639px;
     height: 90px;
-    /* left: 250px; */
-    /* top: 330px; */
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -182,13 +200,13 @@ h6 {
 #cart {
     position: fixed;
     top: 0;
-    /* right: 0; */
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     z-index: 2;
 }
+
 
 #cart a {
     color: #909090;
@@ -250,17 +268,9 @@ h6 {
     gap: 10px;
 }
 
-/* .cards-carrito button {
-    width: 20px;
-    height: 20px;
-    font-size: 1px;
-    border-radius: 5px;
-} */
-
 .carrito-imgs {
     max-width: 80px;
     height: 50px;
-    /* border-radius: 16px; */
     object-fit: cover;
     padding-left: 15px;
 }
@@ -391,6 +401,11 @@ h6 {
     border-radius: 100px;
     cursor: pointer;
     position: relative;
+    transition: all 0.1s;
+}
+
+.cards-c:hover {
+    border: #000 solid 5px;
 }
 
 .populares {
@@ -410,7 +425,6 @@ h6 {
 }
 
 .cards-c span {
-    /* background-image: linear-gradient(90deg, #FFA100,#FB103D); */
     background-image: linear-gradient(var(--mostaza), var(--marron));
     font-size: 10px;
     height: 5px;
@@ -450,8 +464,7 @@ h6 {
 
 .precio-prod {
     font-size: 20px;
-    font-weight: bold;
-    /* background: linear-gradient(#FFA100, #FB103D); */    
+    font-weight: bold;   
     background: linear-gradient(var(--mostaza), var(--marron));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -459,12 +472,10 @@ h6 {
 
 #productos{
     display: grid;
-    /* grid-template-columns: repeat(4, 1fr); */
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     column-gap: 40px;
     row-gap: 30px;
-    /* gap: 30px;s */
 }
 
 .cards-productos{
@@ -483,8 +494,6 @@ h6 {
 #pop-imgs, .productos-imgs{
     width: auto;
     height: 150px;
-    /* width: auto; */
-    /* max-width: 150px; */
     object-fit: cover;
 }
 
@@ -581,35 +590,38 @@ footer {
 /* ___________________________________BOTONES Y EXTRAS____________________________________ */
 
 .btn-ver {
-    /* background: linear-gradient(98.81deg, #FFA100 -0.82%, #FB103D 101.53%); */
     position: relative;
     background: linear-gradient(98.81deg, var(--mostaza) -0.82%, var(--marron) 101.53%);
     box-shadow: 11px 28px 50px rgba(20, 78, 90, 0.2);
     border-radius: 15px;
-    /* position: absolute; */
     width: 166px;
     cursor: pointer;
     height: 50px;
     color: white;
-    /* top: 400px; */
-    /* left: 250px; */
     font-family: 'Montserrat';
     font-weight: 700;
     font-size: 14px;
     border: none;
+}
+
+#more-btn {
     animation-name: appear;
     animation-duration: 4s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
 
+#more-btn:hover {
+    animation-name: expand;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
 
 .card-btn {
-    /* background: linear-gradient(98.81deg, #FFA100 -0.82%, #FB103D 101.53%); */
     background: linear-gradient(98.81deg, var(--mostaza) -0.82%, var(--marron) 101.53%);
     box-shadow: 11px 28px 50px rgba(20, 78, 90, 0.2);
     border-radius: 15px;
-    /* position: absolute; */
     width: 100px;
     height: 30px;
     font-family: 'Montserrat';
@@ -625,7 +637,7 @@ footer {
 
 .card-btn:hover {
     animation-name: change-gradient;
-    animation-duration: 0.05s;
+    animation-duration: 0.09s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
@@ -683,7 +695,6 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    /* padding-right: 15px; */
 }
 
 #empty {
@@ -798,9 +809,6 @@ footer {
         display: none;
     }
 
-    /* #toggle-menu {
-        display:none;
-    } */
 
     /* -------------------- HERO -------------------- */
     
@@ -840,10 +848,7 @@ footer {
     }
     
     #img-main{
-        /* position: absolute; */
         width: 300px;
-        /* top: 200px; */
-        /* right: 230px; */
     }
     
     h1 {
@@ -856,11 +861,8 @@ footer {
     }
     
     h2 {
-        /* position: absolute; */
         width: 639px;
         height: 90px;
-        /* left: 250px; */
-        /* top: 270px; */
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 700;
@@ -872,11 +874,8 @@ footer {
         font-size: 16px;
     }
     h6 {
-        /* position: absolute; */
         width: 639px;
         height: 90px;
-        /* left: 250px; */
-        /* top: 330px; */
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 400;
@@ -906,8 +905,7 @@ footer {
     
     .precio-prod {
         font-size: 30px;
-        font-weight: bold;
-        /* background: linear-gradient(#FFA100, #FB103D); */    
+        font-weight: bold;  
         background: linear-gradient(var(--mostaza), var(--marron));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -916,7 +914,6 @@ footer {
     #productos{
         margin: 0;
         display: flex;
-        /* flex-direction: column; */
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
@@ -939,8 +936,6 @@ footer {
     #pop-imgs, .productos-imgs{
         width: auto;
         height: 150px;
-        /* width: auto; */
-        /* max-width: 150px; */
         object-fit: cover;
     }
     
@@ -989,7 +984,6 @@ footer {
 
     #recomendaciones {
         display: flex;
-        /* flex-direction: column; */
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
@@ -1053,7 +1047,5 @@ footer {
         cursor: pointer;
         position: relative;
     }
-    
-    /* -------------------- FOOTER -------------------- */
     
 }
