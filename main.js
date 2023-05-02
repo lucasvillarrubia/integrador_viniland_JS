@@ -2,14 +2,14 @@
 // OBJETO
 
 class producto {
-        constructor (id, nombre, imagen, precio, categoria, xAgregado, enCarrito) {
+        constructor (id, nombre, autor, imagen, precio, categoria, xAgregado) {
           this.id = id;
           this.nombre = nombre;
+          this.autor = autor;
           this.imagen = imagen;
           this.precio = precio;
           this.categoria = categoria;
           this.xAgregado = xAgregado;
-          this.enCarrito = enCarrito;
         }
 }
 
@@ -17,38 +17,38 @@ class producto {
 // ARRAYS
 
 const productosStock = [
-        new producto (1, "After Hours", "./assets/img/afterhours.png", 350, "vinilos", 0, false),
-        new producto (2, "Midnights", "./assets/img/midnights.png", 380, "vinilos", 0, false),
-        new producto (3, "Mr. Morale & the Big Steppers", "./assets/img/mrmorale.png", 450, "vinilos", 0, false),
-        new producto (4, "Future Nostalgia", "./assets/img/futurenostalgia.png", 750, "vinilos", 0, false),
-        new producto (5, "Superache", "./assets/img/superache.png", 990, "vinilos", 0, false),
-        new producto (6, "RENAISSANCE", "./assets/img/renaissance.png", 10, "vinilos", 0, false),
-        new producto (7, "Sour", "./assets/img/sour.png", 350, "vinilos", 0, false),
-        new producto (8, "Gemini Rights", "./assets/img/geminirights.png", 0, "vinilos", 0, false),
-        new producto (9, "Harry's House", "./assets/img/harryshouse.png", 3650, "vinilos", 0, false),
-        new producto (10, "MOTOMAMI", "./assets/img/motomami.png", 870, "vinilos", 0, false),
-        new producto (11, "Happier Than Ever", "./assets/img/happierthanever.png", 360, "vinilos", 0, false),
+        new producto (1, "After Hours", "The Weeknd", "./assets/img/afterhours.png", 350, "vinilos", 0),
+        new producto (2, "Midnights", "Taylor Swift", "./assets/img/midnights.png", 380, "vinilos", 0),
+        new producto (3, "Mr. Morale & the Big Steppers", "Kendrick Lamar", "./assets/img/mrmorale.png", 450, "vinilos", 0),
+        new producto (4, "Future Nostalgia", "Dua Lipa", "./assets/img/futurenostalgia.png", 750, "vinilos", 0),
+        new producto (5, "Superache", "Conan Gray", "./assets/img/superache.png", 990, "vinilos", 0),
+        new producto (6, "RENAISSANCE", "Beyoncé", "./assets/img/renaissance.png", 10, "vinilos", 0),
+        new producto (7, "Sour", "Olivia Rodrigo", "./assets/img/sour.png", 350, "vinilos", 0),
+        new producto (8, "Gemini Rights", "Steve Lacy", "./assets/img/geminirights.png", 0, "vinilos", 0),
+        new producto (9, "Harry's House", "Harry Styles", "./assets/img/harryshouse.png", 3650, "vinilos", 0),
+        new producto (10, "MOTOMAMI", "ROSALÍA", "./assets/img/motomami.png", 870, "vinilos", 0),
+        new producto (11, "Happier Than Ever", "Billie Eilish", "./assets/img/happierthanever.png", 360, "vinilos", 0),
 
-        new producto (12, "", "", 0, "cassettes", 0, false),
-        new producto (13, "", "", 0, "cassettes", 0, false),
-        new producto (14, "", "", 0, "cassettes", 0, false),
-        new producto (15, "", "", 0, "cassettes", 0, false),
-        new producto (16, "", "", 0, "cassettes", 0, false),
-        new producto (17, "", "", 0, "cassettes", 0, false),
-        new producto (18, "", "", 0, "cassettes", 0, false),
-        new producto (19, "", "", 0, "cassettes", 0, false),
-        new producto (20, "", "", 0, "cds", 0, false),
-        new producto (21, "", "", 0, "cds", 0, false),
-        new producto (22, "", "", 0, "cds", 0, false),
-        new producto (23, "", "", 0, "cds", 0, false),
-        new producto (24, "", "", 0, "cds", 0, false),
-        new producto (25, "", "", 0, "cds", 0, false),
-        new producto (26, "", "", 0, "libros", 0, false),
-        new producto (27, "", "", 0, "libros", 0, false),
-        new producto (28, "", "", 0, "libros", 0, false),
-        new producto (29, "", "", 0, "libros", 0, false),
-        new producto (30, "", "", 0, "libros", 0, false),
-        new producto (31, "", "", 0, "libros", 0, false)
+        new producto (12, "Chemtrails Over the Country Club", "Lana del Rey", "./assets/img/chemtrailsoverthecountryclub-cassette.png", 50000, "cassettes", 0),
+        new producto (13, "Bleach", "Nirvana", "./assets/img/bleach-cassette.png", 23000, "cassettes", 0),
+        new producto (14, "The Lockdown Sessions", "Elton John", "./assets/img/thelockdownsessions-cassette.png", 48000, "cassettes", 0),
+        new producto (15, "Harry's House", "Harry Styles", "./assets/img/harryshouse-cassette.png", 55000, "cassettes", 0),
+        new producto (16, "Happier Than Ever", "Billie Eilish", "./assets/img/happierthanever-cassette.png", 35000, "cassettes", 0),
+        new producto (17, "Greatest Hits", "Queen", "./assets/img/greatesthits-cassette.png", 25000, "cassettes", 0),
+        new producto (18, "Sucking In The Seventies", "The Rolling Stones", "./assets/img/suckingintheseventies-cassette.png", 10500, "cassettes", 0),
+        new producto (19, "YHLQMDLG", "Bad Bunny", "./assets/img/yhlqmdlg-cassette.png", 30000, "cassettes", 0),
+        new producto (20, "Call Me If You Get Lost", "Tyler, The Creator", "./assets/img/callmeifyougetlost.jpg", 9900, "cds", 0),
+        new producto (21, "DISCO", "Kylie Minogue", "./assets/img/DISCO.jpg", 6800, "cds", 0),
+        new producto (22, "Back to Black", "Amy Winehouse", "./assets/img/backtoblack.jpg", 4500, "cds", 0),
+        new producto (23, "Legacy", "David Bowie", "./assets/img/legacy.jpg", 2300, "cds", 0),
+        new producto (24, "Thriller", "Michael Jackson", "./assets/img/thriller.jpg", 7900, "cds", 0),
+        new producto (25, "Rumours", "Fleetwood Mac", "./assets/img/rumours.jpeg", 6700, "cds", 0),
+        new producto (26, "The Slow Rush", "Tame Impala", "./assets/img/theslowrush.jpg", 5000, "cds", 0),
+        new producto (27, "30", "Adele", "./assets/img/30.jpg", 10500, "cds", 0),
+        new producto (28, "Me", "Elton John", "./assets/img/me-book.png", 6500, "libros", 0),
+        new producto (29, "Paracaidas y Vueltas", "Andrés Calamaro", "./assets/img/paracaidasyvueltas-book.png", 3500, "libros", 0),
+        new producto (30, "Chronicles Vol. 1", "Bob Dylan", "./assets/img/chroniclesvol1-book.png", 4100, "libros", 0),
+        new producto (31, "Born To Run", "Bruce Springsteen", "./assets/img/borntorun-book.png", 3100, "libros", 0)
 ];
 
 let productosCarrito = [];
@@ -56,7 +56,9 @@ let productosCarrito = [];
 let productosRecomendados = [];
 
 
-// ELEMENTOS DE HTML
+// ELEMENTOS DE HTML - CONSTANTES
+
+const COSTO_ENVIO_DEFAULT = 1200;
 
 const populares = document.getElementById("populares");
 const vinilos = document.getElementById("vinilos");
@@ -76,6 +78,7 @@ const verMasProd = document.getElementById("view-more");
 const carritoVacio = document.getElementById("empty");
 const total = document.getElementById("total");
 const subtotal = document.getElementById("subtotal");
+const envio = document.getElementById("envio");
 
 
 
@@ -98,7 +101,8 @@ function rechazo_compra () {
 }
 
 const actualizar_carrito = (producto, accion) => {
-        let indexModificado = productosStock.find(modificado => modificado.id == producto.id).id;
+        let costoEnvio = 0;
+        let indexModificado = productosStock.find(modificado => modificado.id == producto.id).id - 1;
         switch (accion) {
                 case "agregar":
                         if (productosCarrito.length == 0) {
@@ -106,19 +110,22 @@ const actualizar_carrito = (producto, accion) => {
                                 botonComprar.removeEventListener('click', rechazo_compra);
                                 botonComprar.addEventListener('click', aviso_compra);
                         }
-                        if (!productosStock[indexModificado-1].enCarrito) {
+                        if (productosStock[indexModificado].xAgregado <= 0) {
                                 productosCarrito.push(producto);
-                                productosStock[indexModificado-1].enCarrito = true;
                         }
-                        productosStock[indexModificado-1].xAgregado++;
+                        productosStock[indexModificado].xAgregado++;
                         botonComprar.style.background = "linear-gradient(98.81deg, var(--mostaza) -0.82%, var(--marron) 101.53%)";
                         break;
                 case "eliminar":
-                        productosStock[indexModificado-1].xAgregado--;
-                        if (productosStock[indexModificado-1].xAgregado == 0) {
-                                productosStock[indexModificado-1].enCarrito = false;
-                                productosCarrito = productosCarrito.filter(agregado => agregado.enCarrito);
-                                alert(`Sacaste un ${producto.nombre} del carrito!`);
+                        if (productosStock[indexModificado].xAgregado == 1) {
+                                if (confirm (`Se eliminará ${producto.nombre} del carrito`)) {
+                                        productosStock[indexModificado].xAgregado--;
+                                        productosCarrito = productosCarrito.filter(agregado => agregado.xAgregado > 0);
+                                                // alert(`Sacaste un ${producto.nombre} del carrito!`);
+                                }
+                        }
+                        else {
+                                productosStock[indexModificado].xAgregado--;
                         }
                         if (productosCarrito.length == 0) {
                                 carritoVacio.style.display = "block";
@@ -129,7 +136,15 @@ const actualizar_carrito = (producto, accion) => {
                         break;
         }
         subtotal.innerHTML = "$ " + sumar_total();
-        total.innerHTML = "$" + sumar_total();
+        if ((sumar_total() < 9000) && (sumar_total() > 0)) {
+                envio.innerHTML = "$ " + COSTO_ENVIO_DEFAULT;
+                costoEnvio = COSTO_ENVIO_DEFAULT;
+        }
+        else {
+                envio.innerHTML = "Gratis";
+                costoEnvio = 0;
+        }
+        total.innerHTML = "$ " + (costoEnvio + sumar_total());
         localStorage.setItem('productosCarrito', JSON.stringify(productosCarrito));
 };
 
@@ -144,6 +159,7 @@ const mostrar_producto = (seccion, producto) => {
                         <div class="datos-prod">
                                 <div class="info-prod">
                                         <p class="nombre-prod">${producto.nombre}</p>
+                                        <p class="autor-${seccion.id}">${producto.autor}</p>
                                         <p class="precio-prod">$${producto.precio}</p>
                                 </div>
                                 <div class="controles-prod">
@@ -191,7 +207,7 @@ const render_productos = (seccion, categoria) => {
                 case "carrito":
                         seccionCarrito.innerHTML = "";
                         JSON.parse(localStorage.getItem('productosCarrito')).forEach((producto) => {
-                                if (producto.enCarrito) {
+                                if (producto.xAgregado > 0) {
                                         mostrar_producto (seccionCarrito, producto);
                                         let cantidad_carrito = document.getElementById("carrito-" + producto.id + "-cant");
                                         cantidad_carrito.innerHTML = producto.xAgregado;
