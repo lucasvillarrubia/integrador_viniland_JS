@@ -84,7 +84,7 @@ header {
 
 /* ___________________________________HERO Y GENERALES____________________________________ */
 
-#hero {
+.cont-hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -678,6 +678,7 @@ footer {
 
 @media screen and (max-width: 720px) {
 
+
     /* -------------------- NAVBAR -------------------- */
     header {
         background-color: var(--marron);
@@ -716,12 +717,17 @@ footer {
 
     /* -------------------- HERO -------------------- */
     
-    #hero {
+    .cont-hero {
         flex-direction: column;
         align-items: center;
         padding: 80px 0 40px 0;
         margin: 0 auto;
         gap: 100px;
+        background-color: rgba(85, 45, 45, 0.85);
+    }
+    
+    #hero {
+        background: url(https://cdn-0.studybreaks.com/wp-content/uploads/2022/05/samuel-regan-asante-5j7nQv-jaVM-unsplash-scaled-e1651881324847.jpg?ezimgfmt=rs:0x0/rscb6/ng:webp/ngcb6) no-repeat center/cover;
     }
     
     .titles {
@@ -754,7 +760,7 @@ footer {
         text-align: center;
         overflow-wrap: break-word;
         font-size: 75px;
-        color: var(--marron);
+        color: var(--mantecol);
         text-shadow: none;
     }
     
