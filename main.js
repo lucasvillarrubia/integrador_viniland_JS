@@ -188,13 +188,18 @@ const mostrar_producto = (seccion, producto) => {
 function filtrar_productos (categoria) {
         let productos_para_mostrar = [];
         if (categoria == "populares") {
-                if (JSON.parse(localStorage.getItem('productosMasAgregados')).length < 8) {
+                if (!JSON.parse(localStorage.getItem('productosMasAgregados'))) {
                         productos_para_mostrar = productosStock.slice(0,8);
                 }
                 else {
-                        productos_para_mostrar = JSON.parse(localStorage.getItem('productosMasAgregados')).sort((prod1, prod2) => prod2.xHistorialAgregado - prod1.xHistorialAgregado);
-                        console.log(productos_para_mostrar);
-                        productos_para_mostrar = productos_para_mostrar.slice(0,8);
+                        if (JSON.parse(localStorage.getItem('productosMasAgregados')).length < 8) {
+                                productos_para_mostrar = productosStock.slice(0,8);
+                        }
+                        else {
+                                productos_para_mostrar = JSON.parse(localStorage.getItem('productosMasAgregados')).sort((prod1, prod2) => prod2.xHistorialAgregado - prod1.xHistorialAgregado);
+                                console.log(productos_para_mostrar);
+                                productos_para_mostrar = productos_para_mostrar.slice(0,8);
+                        }
                 }
         }
         else {
