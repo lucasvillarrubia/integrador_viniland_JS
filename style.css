@@ -16,8 +16,17 @@ html {
 
 body {
     width: 100%;
-    background: var(--mantecol);
+    background: var(--marron);
     font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    background: var(--mantecol);
+    width: 100%;
+    max-width: 1500px;
 }
 
 :root {
@@ -45,7 +54,7 @@ header {
     background-color: var(--transparente);
     background-color: var(--mantecol);
     margin: 0 auto;
-    height: 100px;
+    height: 15vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -117,6 +126,8 @@ header {
     width: 100%;
     gap: 100px;
     overflow-x: hidden;
+    height: 75vh;
+    max-height: 1000px;
 }
 
 .titles {
@@ -163,12 +174,18 @@ h1 {
 
 h2 {
     width: 639px;
+    max-width: 100%;
     height: 90px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
     font-size: 51px;
     line-height: 66.82px;
+}
+
+h3 {
+    font-family: 'Galada', sans-serif;
+    font-size: 25px;
 }
 
 h4 {
@@ -189,9 +206,13 @@ h6 {
 }
 
 .subtitulos{
-    margin: 100px 50px 20px;
+    margin: 100px 50px 30px;
     color: var(--marron);
     font-size: 20px;
+}
+
+#buy, #more {
+    margin-bottom: 80px;
 }
 
 
@@ -371,6 +392,24 @@ h6 {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    overflow-x: scroll;
+}
+
+#categorias::-webkit-scrollbar {
+    width: 10px;
+    height: 1px;
+    background-color: #252525;
+    border-radius: 5px;
+    display: none;
+}
+
+#categorias::-webkit-scrollbar-button {
+    display: none;
+}
+
+#categorias::-webkit-scrollbar-thumb {
+    background-color: #606060;
+    border-radius: 5px;
 }
 
 .img-cat {
@@ -476,6 +515,27 @@ h6 {
     justify-items: center;
     column-gap: 40px;
     row-gap: 30px;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
+#productos::-webkit-scrollbar {
+    width: 10px;
+    height: 1px;
+    background-color: #252525;
+    border-radius: 5px;
+    display: none;
+}
+
+#productos::-webkit-scrollbar-button {
+    display: none;
+}
+
+#productos::-webkit-scrollbar-thumb {
+    background-color: #606060;
+    border-radius: 5px;
 }
 
 .cards-productos{
@@ -495,6 +555,131 @@ h6 {
     width: auto;
     height: 150px;
     object-fit: cover;
+}
+
+/* ___________________________________CONTACTO/ABOUT____________________________________ */
+
+#contacto {
+    height: 85vh;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: var(--beige);
+    padding: 50px 0;
+}
+
+.cont_personal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont_contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    padding: 0 50px;
+}
+
+.cont_about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    gap: 10px;
+}
+
+.cont_presentacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#img_about {
+    height: 200px;
+    border: 10px solid var(--mostaza);
+    border-radius: 500px;
+}
+
+#text_descripcion {
+    text-align: center;
+    max-width: 300px;
+    padding: 10px;
+}
+
+.titulo_contacto {
+    margin-bottom: 10px;
+    font-size: 50px;
+    font-family: 'Galada', sans-serif;
+    text-align: center;
+    color: var(--marron);
+    overflow-wrap: break-word;
+}
+
+.formulario_contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.formulario_contacto div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: left;
+    gap: 10px;
+    width: 100%;
+}
+
+.formulario_contacto input {
+    background-color: rgb(240, 240, 240);
+    border: 2px solid black;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.formulario_contacto label {
+    font-size: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+#mensaje_contacto {
+    border: 2px solid black;
+    background-color: rgb(240, 240, 240);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#enviar {
+    margin-top: 10px;
+    background-color: var(--mostaza);
+    cursor: pointer;
+    padding: 5px;
+    width: auto;
+    font-family: 'Galada', sans-serif;
+    font-size: 20px;
 }
 
 
@@ -604,13 +789,6 @@ footer {
     border: none;
 }
 
-#more-btn {
-    animation-name: appear;
-    animation-duration: 4s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
-}
-
 #more-btn:hover {
     animation-name: expand;
     animation-duration: 0.5s;
@@ -708,7 +886,8 @@ footer {
 }
 
 #recomendaciones, #categorias, #productos {
-    margin: 0 50px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 
@@ -820,12 +999,12 @@ footer {
         margin: 0 auto;
         gap: 20px;
         background-color: rgba(85, 45, 45, 0.85);
-        height: 90vh;
+        height: 75vh;
     }
     
     #hero {
         background: url(https://cdn-0.studybreaks.com/wp-content/uploads/2022/05/samuel-regan-asante-5j7nQv-jaVM-unsplash-scaled-e1651881324847.jpg?ezimgfmt=rs:0x0/rscb6/ng:webp/ngcb6) no-repeat center/cover;
-        height: 90vh;
+        height: 75vh;
     }
     
     .titles {
@@ -884,9 +1063,10 @@ footer {
     }
     
     .subtitulos{
-        margin: 100px 50px 20px;
+        margin: 50px 50px 20px;
         color: var(--marron);
         font-size: 20px;
+        text-align: center;
     }
 
     /* -------------------- PRODUCTOS -------------------- */
@@ -918,6 +1098,7 @@ footer {
         justify-content: center;
         align-items: center;
         gap: 20px;
+        margin-bottom: 50px;
     }
     
     .cards-productos{
@@ -1025,7 +1206,7 @@ footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        overflow-y: scroll;
+        overflow-x: scroll;
         gap: 20px;
         margin: 0 0 0 30px;
     }
@@ -1048,4 +1229,25 @@ footer {
         position: relative;
     }
     
+    
+        /* -------------------- CONTACTO -------------------- */
+        
+    #contacto {
+        height: auto;
+        max-height: none;
+    }
+
+    .cont_personal {
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+
+    .cont_contacto {
+        padding: 0;
+    }
+
+    .cont_presentacion {
+        flex-direction: column;
+    }
 }
+
