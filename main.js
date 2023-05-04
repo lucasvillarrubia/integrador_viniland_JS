@@ -278,11 +278,13 @@ const inicializar_agregados = () => {
         let indexModificado = 0;
         let prodsEnCarrito = JSON.parse(localStorage.getItem('productosCarrito'));
         let prodsFavoritos = JSON.parse(localStorage.getItem('productosMasAgregados'));
-        if (prodsFavoritos.length > 0) {
-                prodsFavoritos.forEach((producto) => {
-                        indexModificado = productosStock.find((modificado) => modificado.id == producto.id).id - 1;
-                        productosStock[indexModificado].xHistorialAgregado = producto.xHistorialAgregado;
-                });
+        if (prodsFavoritos) {
+                if (prodsFavoritos.length > 0) {
+                        prodsFavoritos.forEach((producto) => {
+                                indexModificado = productosStock.find((modificado) => modificado.id == producto.id).id - 1;
+                                productosStock[indexModificado].xHistorialAgregado = producto.xHistorialAgregado;
+                        });
+                }
         }
         if (prodsEnCarrito.length > 0) {
                 prodsEnCarrito.forEach((producto) => {
