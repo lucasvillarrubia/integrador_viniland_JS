@@ -16,7 +16,8 @@ html {
 
 body {
     width: 100%;
-    background: var(--marron);
+    /* background: var(--marron); */
+    background: linear-gradient(0deg, var(--beige) 0%, var(--mantecol) 50%, var(--marron) 100%);
     font-family: "Montserrat", sans-serif;
     display: flex;
     justify-content: center;
@@ -27,6 +28,7 @@ main {
     background: var(--mantecol);
     width: 100%;
     max-width: 1500px;
+    position: relative;
 }
 
 :root {
@@ -65,14 +67,18 @@ header {
     z-index: 1;
 }
 
+nav {
+    width: 100%;
+}
+
 .logo-container img {
     height: 55%;
 }
 
-.navbar,.navbar-list {
+.navbar, .navbar-list {
     display: flex;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
 }
 
 .navbar-list{
@@ -98,7 +104,7 @@ header {
     transition: all 0.05s;
 }
 
-#open-cart::after {
+#open-cart::after, .nav-item::after {
     position: relative;
     content: "";
     font-size: 0;
@@ -110,9 +116,48 @@ header {
     transition: all 0.05s;
 }
 
-#home:hover::after, #user:hover::after, #open-cart:hover::after {
+#home:hover::after, #user:hover::after, #open-cart:hover::after, .nav-item:hover::after {
     width: 100%;
     border: 2px solid var(--marron);
+}
+
+#menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    word-wrap: break-word;
+    align-items: center;
+    font-size: 20px;
+}
+
+.cont_menu {
+    padding: 0 30px 0 50px;
+    width: 100%;
+    animation: show-right 0.5s ease-out;
+}
+
+.nav-item {
+    font-weight: bold;
+}
+
+.nav-link {
+    color: var(--marron);
+    text-decoration: none;
+}
+
+#nav-logo {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav-logo i {
+    color: var(--mantecol);
+    font-size: 20px;
+    display: none;
 }
 
 
@@ -152,7 +197,7 @@ header {
     position: relative;
     right: -400px;
     width: 900px;
-    animation-name: show-right;
+    animation-name: show-right-slowly;
     animation-duration: 2s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
@@ -167,7 +212,7 @@ h1 {
     font-size: 150px;
     color: var(--marron);
     text-shadow: var(--borde_texto);
-    animation-name: show-left;
+    animation-name: show-left-slowly;
     animation-duration: 2s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
@@ -298,17 +343,18 @@ h6 {
 }
 
 .datos-carrito {
-    position: absolute;
-    right: 0;
+    position: fixed;
+    left: 0;
     width: 350px;
     min-height: 350px;
     background-color: var(--marron);
     padding: 20px;
-    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: baseline;
     gap: 20px;
+    animation: show-left 0.5s ease-out;
 }
 
 .numeros-carrito {
@@ -356,6 +402,9 @@ h6 {
     -webkit-text-fill-color: transparent;
 }
 
+#view-more:hover {
+    text-decoration: underline;
+}
 
 /* ___________________________________RECOMENDACIONES____________________________________ */
 
@@ -875,7 +924,7 @@ footer {
 
 
 
-@keyframes show-left {
+@keyframes show-left-slowly {
     0% {
             left: -500px;
             opacity: 0;
@@ -886,7 +935,7 @@ footer {
     }
 }
 
-@keyframes show-right {
+@keyframes show-right-slowly {
     0% {
             right: -400px;
             opacity: 0;
@@ -894,6 +943,24 @@ footer {
     100% {
             right: 0;
             opacity: 1;
+    }
+}
+
+@keyframes show-left {
+    0% {
+        left: -400px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes show-right {
+    0% {
+        right: -400px;
+    }
+    100% {
+        right: 0;
     }
 }
 
@@ -944,7 +1011,12 @@ footer {
         background-color: var(--marron);
         max-width: none;
         height: 75px;
-        padding: 0px 25px 0px 10px;
+        padding: 0px 5px 0px 25px;
+        overflow: hidden;
+    }
+
+    .navbar {
+        justify-content: left;
     }
 
     .logo-container {
@@ -954,7 +1026,11 @@ footer {
 
     .logo-container img {
         height: 100%;
-        width: 100%;
+        width: auto;
+    }
+
+    #nav-logo i {
+        display: block;
     }
     
     .navbar-list{
@@ -967,8 +1043,48 @@ footer {
         cursor: pointer;
     }
     
-    #home {
+    #home, #user {
         display: none;
+    }
+
+    #menu {
+        flex-direction: column;
+        justify-content: last baseline;
+        align-items: end;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .cont_menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50%;
+        min-width: 320px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        z-index: 2;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        align-items: end;
+    }
+
+    .nav-link {
+        color: var(--beige);
+    }
+
+    .nav-item:hover::after {
+        display: none;
+    }
+
+    #exit-menu {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        /* font-size: 10px; */
     }
 
 
@@ -990,6 +1106,7 @@ footer {
         height: 85vh;
     }
     
+
     .titles {
         display: flex;
         flex-direction: column;

@@ -1,3 +1,11 @@
+// NOTA: Después de probar la página en varios dispositivos, en algunos móviles y usando
+//              el navegador Chrome; en la primera carga no es posible desplegar el carrito
+//              de compras, lo cual se soluciona con un refresh.
+//       Con los mismos móviles y usando Brave como navegador principal no ocurrió este error.
+//       Asumo que es una falla de compatibilidad.
+//       Sin problemas con Chrome ni Brave en PC.
+
+
 
 // OBJETO
 
@@ -58,11 +66,18 @@ let productosCarrito = [];
 
 let productosMasAgregados = [];
 
-
 // ELEMENTOS DE HTML - CONSTANTES
 
 const MONTO_MINIMO_ENVIO_GRATIS = 15000;
 const COSTO_ENVIO_DEFAULT = 1200;
+
+const openMenu = document.getElementById("nav-logo");
+const closeMenu = document.getElementById("exit-menu");
+const menu = document.getElementById("cont_menu");
+let navLinks = document.getElementsByClassName('nav-item');
+navLinks = [... navLinks];
+let navLinksToCollapse = document.getElementsByClassName('nav-collapsable');
+navLinksToCollapse = [... navLinksToCollapse];
 
 const populares = document.getElementById("populares");
 const vinilos = document.getElementById("vinilos");
@@ -73,6 +88,7 @@ const categoriasProductos = [populares, vinilos, cassettes, cds, libros];
 
 const seccionProductos = document.getElementById("productos");
 const seccionRecomendaciones = document.getElementById("recomendaciones");
+
 const carrito = document.getElementById("cart");
 const seccionCarrito = document.getElementById("carrito");
 const openCarrito = document.getElementById("open-cart");
@@ -83,7 +99,18 @@ const carritoVacio = document.getElementById("empty");
 const total = document.getElementById("total");
 const subtotal = document.getElementById("subtotal");
 const envio = document.getElementById("envio");
+const envioGratis = document.getElementById("free-ship");
 
+const formContacto = document.getElementById('form_contacto');
+const inputCorreo = document.getElementById('correo_contacto');
+
+
+// FORMULARIO
+
+const esCorreoCompatible = (correo) => {
+        const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+        return re.test(correo);
+};
 
 
 // CARRITO
@@ -151,10 +178,12 @@ const actualizar_carrito = (producto, accion) => {
         if ((sumar_total() < MONTO_MINIMO_ENVIO_GRATIS) && (sumar_total() > 0)) {
                 envio.innerHTML = "$ " + COSTO_ENVIO_DEFAULT;
                 costoEnvio = COSTO_ENVIO_DEFAULT;
+                envioGratis.classList.remove('invisible');
         }
         else {
                 envio.innerHTML = "Gratis";
                 costoEnvio = 0;
+                envioGratis.classList.add('invisible');
         }
         total.innerHTML = "$ " + (costoEnvio + sumar_total());
         localStorage.setItem('productosCarrito', JSON.stringify(productosCarrito));
@@ -197,7 +226,6 @@ function filtrar_productos (categoria) {
                         }
                         else {
                                 productos_para_mostrar = JSON.parse(localStorage.getItem('productosMasAgregados')).sort((prod1, prod2) => prod2.xHistorialAgregado - prod1.xHistorialAgregado);
-                                console.log(productos_para_mostrar);
                                 productos_para_mostrar = productos_para_mostrar.slice(0,8);
                         }
                 }
@@ -274,6 +302,9 @@ const render_productos = (seccion, categoria) => {
         activar_botones_renderizados (productos_renderizados, seccion);
 };
 
+
+// INICIALIZAR
+
 const inicializar_agregados = () => {
         let indexModificado = 0;
         let prodsEnCarrito = JSON.parse(localStorage.getItem('productosCarrito'));
@@ -294,28 +325,65 @@ const inicializar_agregados = () => {
                         actualizar_carrito (productosStock[indexModificado], "agregar");
                 });
         }
-        console.log(prodsEnCarrito);
-        console.log(prodsFavoritos);
 }
+
+function mostrar_links_menu () {
+        menu.style.display = 'flex';
+        navLinksToCollapse.forEach(link => link.style.display = 'block');
+        closeMenu.style.display = 'block';
+}
+
+const cambiar_vista_menu = (modoReducidoActivado) => {
+        console.log(modoReducidoActivado);
+        if (modoReducidoActivado) {
+                menu.style.display = 'none';
+                openMenu.addEventListener('click', mostrar_links_menu);
+                closeMenu.addEventListener('click', () => menu.style.display = 'none');
+                navLinks.forEach(link => link.addEventListener('click', () => menu.style.display = 'none'));
+        }
+        else {
+                // mostrar_menu ();
+                navLinksToCollapse.forEach(link => link.style.display = 'none');
+                openMenu.removeEventListener('click', mostrar_links_menu);
+                menu.style.display = 'block';
+        }
+};
 
 /**********************************************/
 
 const init = () => {
+        const cambioMediaQuery = window.matchMedia("(max-width: 1048px)");
+        cambiar_vista_menu (cambioMediaQuery.matches);
+        cambioMediaQuery.addEventListener('change', () => {
+                cambiar_vista_menu (cambioMediaQuery.matches);
+        });
         render_productos ("productos");
         render_productos ("recomendaciones");
         inicializar_agregados ();
         render_productos ("carrito");
-        categoriasProductos.forEach ((categoria) => {
-                categoria.addEventListener('click', () => {
-                        categoriasProductos.forEach((cat) => cat.classList.remove("cat-selected"));
-                        categoria.classList.add("cat-selected");
-                        productos_mostrados = render_productos("productos", categoria.id);
-                })
-        });
         openCarrito.addEventListener('click', () => carrito.classList.remove("invisible"));
         closeCarrito.addEventListener('click', () => carrito.classList.add("invisible"));
         verMasProd.addEventListener('click', () => carrito.classList.add("invisible"));
         botonComprar.addEventListener('click', rechazo_compra);
+        categoriasProductos.forEach ((categoria) => {
+                categoria.addEventListener('click', () => {
+                        categoriasProductos.forEach((cat) => cat.classList.remove("cat-selected"));
+                        categoria.classList.add("cat-selected");
+                        render_productos("productos", categoria.id);
+                })
+        });
+        formContacto.addEventListener('submit', e => {
+                const correo = inputCorreo.value.trim();
+                e.preventDefault();
+                if (!esCorreoCompatible(correo)) {
+                        alert('El correo tiene formato incorrecto (válido: hola@pagina.com).');
+                }
+                else {
+                        formContacto.reset();
+                        alert('No me va a llegar este mensaje. Gracias por escribir :)');
+                }
+        });
+        envioGratis.innerHTML += MONTO_MINIMO_ENVIO_GRATIS;
 };
 
 

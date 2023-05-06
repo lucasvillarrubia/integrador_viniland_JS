@@ -14,10 +14,6 @@
 	<main>
 		<!-- Header section -->
 		<header>
-			<div class="logo-container">
-				<img src="/assets/img/logo.png" alt="Logo" width="76px" height="79px">
-			</div>
-
 			<!-- Navbar -->
 			<nav class="navbar">
 				<ul class="navbar-list">
@@ -25,7 +21,25 @@
 					<li id="open-cart"><i class="fa-solid fa-cart-shopping"></i></li>
 					<li id="user"><a href="./assets/login.html"><i class="fa-solid fa-user"></i></a></li>
 				</ul>
+				<div class="cont_menu" id="cont_menu">
+					<button id="exit-menu" class="btn-ver nav-collapsable"><i class="fa-solid fa-bars"></i></button>
+					<ul id="menu">
+						<li class="nav-item nav-collapsable"><a href="#" class="nav-link">Home</a></li>
+						<li class="nav-item"><a href="#categorias" class="nav-link">Categorias</a></li>
+						<li class="nav-item"><a href="#productos" class="nav-link">Productos</a></li>
+						<li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+						<li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+						<li class="nav-item nav-collapsable"><a href="./assets/login.html" class="nav-link">Iniciar Sesión</a></li>
+						<li class="nav-item nav-collapsable"><a href="./assets/signin.html" class="nav-link">Registrarse</a></li>
+					</ul>
+				</div>
 			</nav>
+			<div class="logo-container" id="nav-logo">
+				<img src="/assets/img/logo.png" alt="Logo" width="76px" height="79px">
+				<i class="fa-solid fa-bars"></i>
+			</div>
+
+			
 		</header>
 
 		<!-- Cart section -->
@@ -49,6 +63,8 @@
 							<p id="envio" class="text-cart">Gratis</p>
 						</div>
 					</div>
+					<span class="separador"></span>
+					<p class="text-cart" id="free-ship">Envios GRATIS a partir de $</p>
 					<span class="separador"></span>
 					<div class="final-compra">
 						<div>
@@ -121,30 +137,30 @@
 			<h2 class="titulo_contacto">¡Contactame!</h2>
 			<div class="cont_personal">
 				<div class="cont_contacto">
-					<form class="formulario_contacto">
+					<form class="formulario_contacto" id="form_contacto">
 						<div>
-							<label for="nombre_contacto">Nombre </label>
-							<input type="text" id="nombre_contacto">
+							<label for="nombre_contacto">Nombre *</label>
+							<input type="text" id="nombre_contacto" required>
 						</div>
 						<div>
-							<label for="correo_contacto">Correo </label>
-							<input type="email" id="correo_contacto">
+							<label for="correo_contacto">Correo *</label>
+							<input type="email" id="correo_contacto" required>
 						</div>
 						<div>
-							<label for="mensaje_contacto">Mensaje </label>
-							<textarea name="hghjg" id="mensaje_contacto" cols="17" rows="3"></textarea>
+							<label for="mensaje_contacto">Mensaje *</label>
+							<textarea name="hghjg" id="mensaje_contacto" cols="17" rows="3" required></textarea>
 						</div>
 						<div class="cont_boton">
 							<input type="submit" class="boton" id="enviar">
 						</div>
 					</form>
 				</div>
-				<div class="cont_about">
-					<h3 class="titulo_about">~ Sobre mí ~</h3>
+				<div class="cont_about" id="about">
+					<h3 class="titulo_about">~ About me! ~</h3>
 					<div class="cont_presentacion">
 						<img id="img_about" src="./assets/img/perfil.jpg" alt="perfil">
 						<p id="text_descripcion">
-							¡Lorem ipsum! (¿Hola?) Soy Lucas y este es mi último diseño de webpage. Usando mis conocimeintos adquiridos de front-end y dinamismos con Javascript, plasmo mi idea de negocio combinada con mi afición por la música y las formas analógicas de reproducción.
+							¡Lorem ipsum! (¿Hola?) Soy Lucas y este es mi último diseño de webpage. Usando mis conocimientos adquiridos de front-end y dinamismos con Javascript, plasmo mi idea de negocio combinada con mi afición por la música y las formas analógicas de reproducción.
 						</p>
 					</div>
 				</div>
